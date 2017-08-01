@@ -1,4 +1,4 @@
-package com.onevest.dev.crudsqlite;
+package com.onevest.dev.crudsqlite.helper;
 
 import android.content.Context;
 
