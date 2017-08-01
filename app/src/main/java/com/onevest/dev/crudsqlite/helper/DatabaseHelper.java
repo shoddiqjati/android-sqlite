@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper{
-    private Context context;
+
     protected static final String TAG = DatabaseHelper.class.getSimpleName();
 
     public DatabaseHelper(Context context) {
@@ -78,13 +78,27 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public void deleteContact(int id) {
         SQLiteDatabase db = getReadableDatabase();
-        boolean deleteStatus = db.delete(Constants.TB_NAME, Constants.col_id, new String[]{String.valueOf(id)}) > 0;
+        boolean deleteStatus = db.delete(Constants.TB_NAME, Constants.col_id + "=?",
+                new String[]{String.valueOf(id)}) > 0;
         if (deleteStatus) {
             Log.d(TAG, "Record with id = " + id + " is successfully deleted");
         } else {
             Log.d(TAG, "Failed to delete" + id);
         }
+    }
 
-
+    public void updateContact(Contact contact) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(Constants.col_id, contact.getId());
+        values.put(Constants.col_name, contact.getName());
+        values.put(Constants.col_phone, contact.getPhone());
+        boolean updateStatus = db.update(Constants.TB_NAME, values, Constants.col_id + "=?",
+                new String[]{String.valueOf(contact.getId())}) > 0;
+        if (updateStatus) {
+            Log.d(TAG, "Record with id = " + contact.getId() + " is successfully updated");
+        } else {
+            Log.d(TAG, "Failed to delete" + contact.getId());
+        }
     }
 }
