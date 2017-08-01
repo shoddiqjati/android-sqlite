@@ -42,9 +42,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
+            case R.id.createBT:
+                addContact();
+                break;
+            case R.id.readBT:
+                readContacts();
+                break;
+            case R.id.updateBT:
+                updateContact();
+                break;
+            case R.id.deleteBT:
+                deleteContact();
+                break;
         }
     }
 
+    private void deleteContact() {
 
+    }
+
+    private void updateContact() {
+
+    }
+
+    private void readContacts() {
+
+    }
+
+    private void addContact() {
+
+    }
 }

@@ -1,11 +1,11 @@
 package com.onevest.dev.crudsqlite.model;
 
-public class Contacts {
+public class Contact {
     int id;
     String name;
     String phone;
 
-    public Contacts() {
+    public Contact() {
     }
 
     public int getId() {

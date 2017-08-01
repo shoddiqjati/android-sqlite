@@ -6,4 +6,5 @@ public class Constants {
     public static final String col_id = "id";
     public static final String col_name = "name";
     public static final String col_phone = "phone";
+    public static final int DB_INIT_VERSION = 1;
 }
